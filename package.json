@@ -1,0 +1,24 @@
+{
+  "name": "js-browser-paste",
+  "version": "0.0.2",
+  "description": "在现代浏览器中通过JS获取剪贴板中文本或文件数据",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/batdatav/js-browser-paste.git"
+  },
+  "keywords": [
+    "browser",
+    "paste"
+  ],
+  "author": "batdatav",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/batdatav/js-browser-paste/issues"
+  },
+  "homepage": "https://www.batdatav.com"
+}

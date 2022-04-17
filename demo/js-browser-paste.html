@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js-browser-paste</title>
+		<style type="text/css">
+			.text-center{
+				display:flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			.title{
+				height: 20vh;
+				text-align: center;
+			}
+			.title-main{
+				font-size: 1.5em;
+			}
+			.title-desc{
+				color: #999999;
+				font-size: 0.9em;
+			}
+			.paste-area{
+				height: 70vh;
+				background-color: #EEEEEE;
+				overflow: auto;
+				padding: 18px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="title text-center">
+			<div class="title-main">js-browser-paste</div>
+			<div>在现代浏览器中通过JS获取剪贴板中文本或文件数据</div>
+			<div class="title-desc">【点击下面灰色区域后ctrl+v或command+v粘贴数据】</div>
+		</div>
+		<div id="paste-area" class="paste-area text-center">
+			[]
+		</div>
+
+		<script type="module">
+			import BrowserPaste from '../lib/browser-paste.js'
+			const pasteArea = document.getElementById("paste-area");
+
+			const doPaste = async ( event)=>{
+				let pasteContent = "";
+				try{
+					pasteContent = await BrowserPaste.BrowserPasteAll( event);
+				}catch( e){
+					pasteContent = e;
+				}
+				console.log( 'doPaste', event, pasteContent);
+				pasteArea.innerHTML = "<pre>"+JSON.stringify( pasteContent, null, 2)+"</pre>";
+			}
+
+			pasteArea.addEventListener("paste", (event)=>{
+				doPaste( event);
+			});
+		</script>
+	</body>
+</html>
